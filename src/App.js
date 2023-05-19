@@ -1,5 +1,4 @@
 import React from "react";
-
 import "bootstrap/dist/css/bootstrap.min.css";
 
 //Code to import Budget.js
@@ -13,27 +12,29 @@ import ExpenseItem from "./components/ExpenseItem";
 import AllocationForm from "./components/AllocationForm";
 
 import { AppProvider } from "./context/AppContext";
+
 const App = () => {
   return (
     <AppProvider>
       <div className="container">
         <h1 className="mt-3">Company's Budget Allocation</h1>
         <div className="row mt-3">
-              {/* Add Budget component here under */}
+           {/* Add Budget component here */}
           <Budget />
-              {/* Add Remaining component here under */}
+           {/* Add Remaining component here */}
           <Remaining />
-              {/* Add ExpenseTotal component here under */}
+           {/* Add ExpenseTotal component here */}
           <ExpenseTotal />
-              {/* Add ExpenseList component here under */}
+           {/* Add ExpenseList component here */}
           <ExpenseList />
-              {/* Add ExpenseItem component here under */}
-          //<ExpenseItem />
-              {/* Add AllocationForm component here under */}
-          //<AllocationForm />
+           {/* Add ExpenseItem component here */}
+          <ExpenseItem />
+           {/* Add AllocationForm component here */}
+          <AllocationForm />
         </div>
       </div>
     </AppProvider>
   );
 };
+
 export default App;
