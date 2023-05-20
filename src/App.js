@@ -31,7 +31,7 @@ const App = () => {
           {/* Add ExpenseList component here */}
           <ExpenseList />
           {/* Add ExpenseItem component here */}
-          <ExpenseItem />
+          {/*<ExpenseItem />*/}
           {/* Add AllocationForm component here */}
           <AllocationForm />
         </div>

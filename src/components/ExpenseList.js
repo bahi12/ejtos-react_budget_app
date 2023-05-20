@@ -19,10 +19,10 @@ const ExpenseList = () => {
       <tbody>
         {expenses.map((expense) => (
           <ExpenseItem
-            id={expense.id}
+            id="1" //{expense.id}
             key={expense.id}
             name={expense.name}
-            allocated={expense.allocated}
+            allocated="300" //{expense.allocated}
             unitprice={expense.unitprice}
           />
         ))}
