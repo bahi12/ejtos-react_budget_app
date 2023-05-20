@@ -13,12 +13,12 @@ const AllocationForm = (props) => {
     };
     if (action === "Reduce") {
       dispatch({
-        type: "RED_QUANTITY",
+        type: "RED_EXPENSE",
         payload: item,
       });
     } else {
       dispatch({
-        type: "ADD_QUANTITY",
+        type: "ADD_EXPENSE",
         payload: item,
       });
     }

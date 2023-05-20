@@ -5,7 +5,7 @@ const TotalExpense = () => {
   const { expenses, Location } = useContext(AppContext);
 
   const totalExpenses = expenses.reduce((total, item) => {
-    return (total += item.unitprice * item.quantity);
+    return (total += item.unitprice * item.allocated);
   }, 0);
 
   const formattedTotalExpenses = isNaN(totalExpenses)

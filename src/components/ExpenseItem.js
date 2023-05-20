@@ -1,5 +1,7 @@
 import React, { useContext } from "react";
 import { AppContext } from "../context/AppContext";
+import { FaPlusCircle } from "react-icons/fa";
+import { FaMinusCircle } from "react-icons/fa";
 import { FaTimesCircle } from "react-icons/fa";
 
 const ExpenseItem = (props) => {
@@ -19,19 +21,27 @@ const ExpenseItem = (props) => {
   return (
     <tr>
       <td>{props.name}</td>
-      <td>{props.quantity}</td>
       <td>
-        {Location}
-        {parseInt(props.unitprice)}
+        {props.Location} {props.allocated}
       </td>
       <td>
-        {Location}
-        {parseInt(props.quantity) * parseInt(props.unitprice)}
+        <FaPlusCircle
+          size="2.2em"
+          color="green"
+          onClick={handleDeleteItem}
+        ></FaPlusCircle>
+      </td>
+      <td>
+        <FaMinusCircle
+          size="2.2em"
+          color="red"
+          onClick={handleDeleteItem}
+        ></FaMinusCircle>
       </td>
       <td>
         <FaTimesCircle
-          size="2.2em"
-          color="red"
+          size="0.9em"
+          color="black"
           onClick={handleDeleteItem}
         ></FaTimesCircle>
       </td>

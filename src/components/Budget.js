@@ -20,7 +20,7 @@ const Budget = () => {
   };
 
   const totalExpenses = expenses.reduce((total, item) => {
-    return (total += item.unitprice * item.quantity);
+    return (total += item.unitprice * item.allocated);
   }, 0);
 
   const budgetValue = isNaN(budget)
@@ -31,14 +31,17 @@ const Budget = () => {
     <div className="alert alert-primary">
       <span className="budget-label">Budget: </span>
       <input
-        type="text"
+        type="number"
+        step="10"
         className="budget-value"
         value={budget}
         onChange={handleBudgetChange}
         placeholder="Enter budget"
       />
       <span>{isNaN(budgetValue) ? "" : budgetValue}</span>
-      <button onClick={handleSaveBudget}>Save</button>
+      <button className="btn btn-primary" onClick={handleSaveBudget}>
+        Save
+      </button>
     </div>
   );
 };
