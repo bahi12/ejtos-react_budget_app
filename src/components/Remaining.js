@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { AppContext } from "../context/AppContext";
+
 const Remaining = () => {
   const { budget, expenses, currency } = useContext(AppContext);
   const totalExpenses = expenses.reduce((total, item) => {
@@ -7,7 +8,7 @@ const Remaining = () => {
   }, 0);
   const remaining = budget - totalExpenses;
   return (
-    <div className="alert alert-primary">
+    <div className="col-3 m-1 alert alert-primary">
       <span>
         Remaining: {currency}
         {remaining}

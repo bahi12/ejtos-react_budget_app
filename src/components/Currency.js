@@ -12,25 +12,25 @@ const Currency = () => {
   };
 
   return (
-    <div className="alert alert-success">
+    <div className="col-3 m-1 alert alert-success">
       <span>Currency: </span>
       <select
-        class="text-bg-secondary p4"
+        class="text-bg-success p4"
         name="currency"
         id="currency"
         onChange={(event) => changeCurrency(event.target.value)}
       >
-        <option class="text-bg-secondary p4" value="£">
+        <option className="text-bg-success p4" value="$">
+          $ Dollar
+        </option>
+        <option className="text-bg-success p4" value="£">
           £ Pound
         </option>
-        <option class="text-bg-secondary p4" value="₹">
+        <option className="text-bg-success p4" value="₹">
           ₹ Inda
         </option>
-        <option class="text-bg-secondary p4" value="€">
+        <option className="text-bg-success p4" value="€">
           € Euro
-        </option>
-        <option class="text-bg-secondary p4" value="$">
-          $ Dollar
         </option>
       </select>
     </div>

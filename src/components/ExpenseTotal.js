@@ -13,7 +13,7 @@ const ExpenseTotal = () => {
     : totalExpenses.toFixed(2);
 
   return (
-    <div className="alert alert-secondary">
+    <div className="col-3 m-1 alert alert-secondary">
       <span className="total-expense-label">Spent so far: </span>
       <span className="total-expense-value">
         {currency}

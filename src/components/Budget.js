@@ -1,8 +1,9 @@
 import React, { useState, useContext } from "react";
 import { AppContext } from "../context/AppContext";
+import Currency from "./Currency";
 
 const Budget = () => {
-  const { expenses, Location, dispatch } = useContext(AppContext);
+  const { dispatch } = useContext(AppContext);
   const [budget, setBudget] = useState("2000");
 
   const handleBudgetChange = (event) => {
@@ -19,16 +20,12 @@ const Budget = () => {
     });
   };
 
-  const totalExpenses = expenses.reduce((total, item) => {
-    return (total += item.unitprice * item.allocated);
-  }, 0);
-
   const budgetValue = isNaN(budget)
     ? "No budget set yet"
-    : Location + parseInt(budget);
+    : Currency + parseInt(budget);
 
   return (
-    <div className="alert alert-primary">
+    <div className="col-4 m-1 alert alert-primary">
       <span className="budget-label">Budget: </span>
       <input
         type="number"
