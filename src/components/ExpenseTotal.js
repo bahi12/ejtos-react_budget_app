@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import { AppContext } from "../context/AppContext";
 
-const TotalExpense = () => {
-  const { expenses, Location } = useContext(AppContext);
+const ExpenseTotal = () => {
+  const { expenses, currency } = useContext(AppContext);
 
   const totalExpenses = expenses.reduce((total, item) => {
     return (total += item.unitprice * item.allocated);
@@ -16,11 +16,11 @@ const TotalExpense = () => {
     <div className="alert alert-secondary">
       <span className="total-expense-label">Total Expenses: </span>
       <span className="total-expense-value">
-        {Location}
+        {currency}
         {formattedTotalExpenses}
       </span>
     </div>
   );
 };
 
-export default TotalExpense;
+export default ExpenseTotal;
