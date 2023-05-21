@@ -22,7 +22,7 @@ const ExpenseList = () => {
             id="1" //{expense.id}
             key={expense.id}
             name={expense.name}
-            allocated="300" //{expense.allocated}
+            allocated={expense.allocated}
             unitprice={expense.unitprice}
           />
         ))}

@@ -3,7 +3,7 @@ import { AppContext } from "../context/AppContext";
 
 const Budget = () => {
   const { expenses, Location, dispatch } = useContext(AppContext);
-  const [budget, setBudget] = useState("");
+  const [budget, setBudget] = useState("2000");
 
   const handleBudgetChange = (event) => {
     const value = event.target.value;
