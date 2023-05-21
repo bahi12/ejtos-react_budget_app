@@ -5,7 +5,7 @@ const ExpenseTotal = () => {
   const { expenses, currency } = useContext(AppContext);
 
   const totalExpenses = expenses.reduce((total, item) => {
-    return (total += item.unitprice * item.allocated);
+    return (total += item.cost);
   }, 0);
 
   const formattedTotalExpenses = isNaN(totalExpenses)
@@ -14,7 +14,7 @@ const ExpenseTotal = () => {
 
   return (
     <div className="alert alert-secondary">
-      <span className="total-expense-label">Total Expenses: </span>
+      <span className="total-expense-label">Spent so far: </span>
       <span className="total-expense-value">
         {currency}
         {formattedTotalExpenses}
