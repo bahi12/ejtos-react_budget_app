@@ -8,7 +8,7 @@ const Remaining = () => {
   }, 0);
   const remaining = budget - totalExpenses;
   return (
-    <div className="col-3 m-1 alert alert-primary">
+    <div className="col-2 m-1 alert alert-primary">
       <span>
         Remaining: {currency}
         {remaining}

@@ -1,38 +1,42 @@
-import React, { useContext, useState } from "react";
-import { AppContext } from "../context/AppContext";
 
-const AllocationForm = () => {
-  const { dispatch } = useContext(AppContext);
-  const [name, setName] = useState("");
-  const [allocated, setAllocated] = useState("");
-  const [action, setAction] = useState("");
+import React, { useContext, useState } from 'react';
+import { AppContext } from '../context/AppContext';
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const expense = {
-      name: name,
-      cost: parseInt(allocated),
+const AllocationForm = (props) => {
+    const { dispatch,remaining,currency  } = useContext(AppContext);
+
+    const [name, setName] = useState('');
+    const [cost, setCost] = useState('');
+    const [action, setAction] = useState('');
+
+    const submitEvent = () => {
+
+            if(cost > remaining) {
+                alert("The value cannot exceed remaining funds  £"+remaining);
+                setCost("");
+                return;
+            }
+
+
+        const expense = {
+            name: name,
+            cost: parseInt(cost),
+        };
+        if(action === "Reduce") {
+            dispatch({
+                type: 'RED_EXPENSE',
+                payload: expense,
+            });
+        } else {
+                dispatch({
+                    type: 'ADD_EXPENSE',
+                    payload: expense,
+                });
+            }
     };
-    if (action === "Reduce") {
-      dispatch({
-        type: "RED_EXPENSE",
-        payload: expense,
-      });
-    } else {
-      dispatch({
-        type: "ADD_EXPENSE",
-        payload: expense,
-      });
-    }
-    setName("");
-    setAllocated("");
-    setAction("");
-  };
-
   return (
     <div>
-      <h2>Allocation Form</h2>
-      <form onSubmit={handleSubmit}>
+      <h2>Change allocation</h2>
         <div className="row">
           <div className="input-group mb-3" style={{ marginLeft: "2rem" }}>
             <div className="input-group-prepend">
@@ -70,25 +74,26 @@ const AllocationForm = () => {
             <span
               className="eco"
               style={{ marginLeft: "2rem", marginRight: "8px" }}
-            ></span>
+            >{currency}</span>
             <input
               required="required"
               type="number"
-              id="allocated"
-              value={allocated}
+              id="cost"
+              step="10"
+              value={cost}
               style={{ size: 10 }}
-              onChange={(event) => setAllocated(event.target.value)}
+              onChange={(event) => setCost(event.target.value)}
             ></input>
             <button
               className="btn btn-primary"
               type="submit"
               style={{ marginLeft: "2rem" }}
+              onClick={submitEvent}
             >
               Save
             </button>
           </div>
         </div>
-      </form>
     </div>
   );
 };

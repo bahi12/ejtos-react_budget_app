@@ -11,11 +11,12 @@ const Currency = () => {
     });
   };
 
+
   return (
     <div className="col-3 m-1 alert alert-success">
       <span>Currency: </span>
       <select
-        class="text-bg-success p4"
+        className="text-bg-success p4"
         name="currency"
         id="currency"
         onChange={(event) => changeCurrency(event.target.value)}
